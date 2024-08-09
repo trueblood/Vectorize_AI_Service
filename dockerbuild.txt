@@ -1,0 +1,23 @@
+universal-sentence-encoderv4-api
+
+###docker push us-central1-docker.pkg.dev/isentropic-tape-419722/universal-sentence-encoderv4-api/universal-sentence-encoderv4-api:latest 
+
+
+docker images
+
+## docker build -t universal-sentence-encoderv4-api:latest . this is old version, use this on non mac devices
+
+docker buildx build --platform linux/amd64 -t universal-sentence-encoderv4-api:latest .
+
+docker tag universal-sentence-encoderv4-api:latest us-central1-docker.pkg.dev/isentropic-tape-419722/universal-sentence-encoderv4-api/universal-sentence-encoderv4-api:latest
+
+docker push us-central1-docker.pkg.dev/isentropic-tape-419722/universal-sentence-encoderv4-api/universal-sentence-encoderv4-api:latest
+
+#confirm they are uploaded correctly
+gcloud artifacts docker images list us-central1-docker.pkg.dev/isentropic-tape-419722/universal-sentence-encoderv4-api
+
+docker stop <container_id>
+docker ps ### gets container id
+
+docker run -p 8080:8080 hello-world-api
+
