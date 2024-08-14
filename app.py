@@ -8,7 +8,7 @@ app = Flask(__name__)
 model = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
 
 # Set API Key from Environment Variable
-API_KEY = os.getenv('API_KEY', 'your_default_api_key_here')
+API_KEY = os.getenv('API_KEY', '53533f4f-3bb5-4b36-bc95-214f9414b8cc')
 
 @app.route('/vectorize', methods=['POST'])
 def vectorize():
