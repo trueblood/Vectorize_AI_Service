@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify
-from sentence_transformers import SentenceTransformer
+import tensorflow_hub as hub
+import numpy as np
 
 app = Flask(__name__)
 
-# Load the sentence-transformers model
-model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+# Load the Universal Sentence Encoder model
+model = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
 
 @app.route('/vectorize', methods=['POST'])
 def vectorize():
@@ -18,7 +19,7 @@ def vectorize():
         return jsonify({'error': 'No ID provided'}), 400
 
     # Generate vector
-    vector = model.encode(sentence)  # Correct the variable name here
+    vector = model([sentence])[0].numpy()
     vector = vector.tolist()  # Convert numpy array to list for JSON serialization
 
     return jsonify({'id': request_id, 'vector': vector})
