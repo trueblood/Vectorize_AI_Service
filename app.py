@@ -9,7 +9,7 @@ app = Flask(__name__)
 model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
 # Set API Key from Environment Variable
-API_KEY = os.getenv('API_KEY', '53533f4f-3bb5-4b36-bc95-214f9414b8cc')
+API_KEY = os.getenv('API_KEY', '')
 
 @app.route('/vectorize', methods=['POST'])
 def vectorize():

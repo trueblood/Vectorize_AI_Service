@@ -14,7 +14,7 @@ RUN pip install virtualenv
 RUN virtualenv venv
 
 # Set environment variables from .env file
-ENV API_KEY=53533f4f-3bb5-4b36-bc95-214f9414b8cc
+ENV API_KEY=
 ENV PORT=8080
 
 # Install any needed packages specified in requirements.txt using the virtual environment
@@ -44,7 +44,7 @@ COPY . /app
 COPY .env /app/.env
 
 # Set environment variables from .env file
-ENV API_KEY=53533f4f-3bb5-4b36-bc95-214f9414b8cc
+ENV API_KEY=
 ENV PORT=8080
 
 EXPOSE 8080
